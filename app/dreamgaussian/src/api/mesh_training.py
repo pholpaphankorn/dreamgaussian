@@ -3,7 +3,6 @@ import cv2
 import time
 import tqdm
 import numpy as np
-import dearpygui.dearpygui as dpg
 
 import torch
 import torch.nn.functional as F
