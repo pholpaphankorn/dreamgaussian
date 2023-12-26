@@ -126,18 +126,18 @@ class GaussianTrainer:
         if self.guidance_sd is None and self.enable_sd:
             if self.opt.mvdream:
                 print(f"[INFO] loading MVDream...")
-                from guidance.mvdream_utils import MVDream
+                from ..core.guidance.mvdream_utils import MVDream
                 self.guidance_sd = MVDream(self.device)
                 print(f"[INFO] loaded MVDream!")
             else:
                 print(f"[INFO] loading SD...")
-                from guidance.sd_utils import StableDiffusion
+                from ..core.guidance.sd_utils import StableDiffusion
                 self.guidance_sd = StableDiffusion(self.device)
                 print(f"[INFO] loaded SD!")
 
         if self.guidance_zero123 is None and self.enable_zero123:
             print(f"[INFO] loading zero123...")
-            from guidance.zero123_utils import Zero123
+            from ..core.guidance.zero123_utils import Zero123
             if self.opt.stable_zero123:
                 self.guidance_zero123 = Zero123(self.device, model_key='ashawkey/stable-zero123-diffusers')
             else:
